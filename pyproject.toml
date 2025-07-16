@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "CodeNav"
+version = "1.0.0"
+description = "An MCP server for Python code navigation and analysis"
+authors = [
+    { name="Rory Butler" },
+]
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "aiofiles",
+    "jedi",
+    "mcp",
+]
+
+[project.scripts]
+codenav = "codenav.__main__:main"
+codenav_cli = "codenav.cli:main"
+
+[tool.setuptools]
+packages = ["codenav"]
