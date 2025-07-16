@@ -6,12 +6,9 @@ An MCP (Model Context Protocol) server for Python code navigation and analysis. 
 
 ### Project Management
 
-**`set_analysis_project`** - Configure project environment for analysis
+**`setup_codenav`** - Configure project environment for analysis
 - `project_path` (string): Root directory path of the Python project to analyze
 - `python_executable_path` (string, optional): Path to specific Python interpreter
-
-**`get_current_analysis_project`** - Get current project settings
-- No arguments
 
 ### Symbol Analysis
 
@@ -69,18 +66,18 @@ uvx --from git+https://github.com/RoryMB/CodeNav@main codenav --cli
 
 ```python
 import asyncio
-from codenav import set_analysis_project, list_symbols_in_file, analyze_symbol_at_location
+from codenav.tools import setup_codenav, list_symbols, find_definition
 
 async def main():
     # Set up project
-    await set_analysis_project("/path/to/your/project")
+    await setup_codenav("/path/to/your/project")
     
     # List symbols in a file
-    symbols = await list_symbols_in_file("src/main.py")
+    symbols = await list_symbols("src/main.py")
     print(f"Functions: {symbols['functions']}")
     
     # Analyze a symbol
-    result = await analyze_symbol_at_location("src/main.py", line=25, column=10)
+    result = await find_definition("src/main.py", line=25, column=10)
     print(f"Symbol: {result}")
 
 # Run the async function
