@@ -37,7 +37,13 @@ An MCP (Model Context Protocol) server for Python code navigation and analysis. 
 - `file_path` (string): Path to the Python file
 - `symbol_name` (string): Name of the symbol to search for
 
-## Add to Claude Desktop
+## Add to Claude
+
+Add to your Claude Code MCP configuration:
+
+```bash
+claude mcp add-json -s user CodeNav '{"command": "uvx", "args": ["--from", "git+https://github.com/RoryMB/CodeNav@main", "codenav"]}'
+```
 
 Add to your Claude Desktop MCP configuration:
 
