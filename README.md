@@ -70,6 +70,12 @@ uvx --from git+https://github.com/RoryMB/CodeNav@main codenav --cli
 
 ### Python Import
 
+Run Python files with this command if you do not want to clone the repo:
+
+```bash
+uv run --with git+https://github.com/RoryMB/CodeNav@main file.py
+```
+
 ```python
 import asyncio
 from codenav.tools import setup_codenav, list_symbols, find_definition
